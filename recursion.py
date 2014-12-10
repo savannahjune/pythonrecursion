@@ -187,7 +187,7 @@ def find(lst, i):
 
     if not lst:
         return None
-    if i == lst[0]:
+    elif i == lst[0]:
         return i
     return find(lst[1:], i)
 
@@ -216,8 +216,14 @@ def is_palindrome(some_string):
     >>> is_palindrome("foaf")
     False
     """
-
-    pass
+    # if after checking all letters and through word and not getting false is a palindrome
+    if not some_string:
+        return True
+    # checks if first and last are the same
+    if some_string[0] != some_string[-1]:
+        return False
+    # provides the recursion
+    return is_palindrome(some_string[1:-1])
 
 
 def fold_paper(width, height, folds):
@@ -254,9 +260,19 @@ def fold_paper(width, height, folds):
     >>> fold_paper(10, 10, 1)
     (5.0, 10.0)
     """
+    # base case when there are no more folds left
+    if folds == 0:
+        return float(width), float(height)
 
-    pass
+    #if width is greater, then you want to fold along that way
 
+    elif width >= height:
+        return fold_paper(width / 2.0, height, folds - 1)
+    
+    #if height is greater, then you want to fold along that way
+
+    else:
+        return fold_paper(width, height / 2.0, folds - 1)
 
 def count_up(n, target):
     """Print all integers from n to target, inclusive.
@@ -283,8 +299,12 @@ def count_up(n, target):
 
     >>> count_up(1, 0)
     """
+    # base case, when your number is greater than your target
+    if n > target:
+        return None
 
-    pass
+    print n
+    count_up(n + 1, target)
 
 
 ###########################################################################################
