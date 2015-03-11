@@ -304,7 +304,7 @@ def count_up(n, target):
         return None
 
     print n
-    count_up(n + 1, target)
+    count_up(n + 1, target) 
 
 
 ###########################################################################################
